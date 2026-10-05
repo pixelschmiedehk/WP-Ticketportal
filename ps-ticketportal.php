@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Pixelschmiede Ticketportal
  * Description: Support-Ticket-Formular im Design der Pixelschmiede — sendet Tickets per wp_mail und, mit Schlüssel, automatisch als Ticket in die Agentur-Zentrale. Shortcode [ps_ticketportal]. Einstellungen unter Einstellungen → Ticketportal.
- * Version: 1.2.3
+ * Version: 1.2.4
  * Author: Pixelschmiede
  * Author URI: https://www.pixelschmiede.io
  * Text Domain: ps-ticketportal
@@ -12,7 +12,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('PS_TICKET_VERSION', '1.2.3');
+define('PS_TICKET_VERSION', '1.2.4');
 define('PS_TICKET_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('PS_TICKET_PLUGIN_URL', plugin_dir_url(__FILE__));
 
