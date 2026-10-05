@@ -26,10 +26,10 @@ if (!defined('ABSPATH')) exit;
         }
     </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #0a0a0a; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+<body style="margin: 0; padding: 0; background-color: #020202; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
 
 <!-- Outer wrapper -->
-<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #0a0a0a;">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #020202;">
 <tr><td align="center" style="padding: 32px 16px;">
 
     <!-- Container -->
@@ -37,13 +37,13 @@ if (!defined('ABSPATH')) exit;
 
         <!-- Header -->
         <tr>
-            <td align="center" style="padding: 24px 32px; background-color: #1d2327; border: 1px solid #3c434a; border-bottom: none; border-radius: 6px 6px 0 0;">
+            <td align="center" style="padding: 24px 32px; background-color: #101113; border: 1px solid #222528; border-bottom: none; border-radius: 6px 6px 0 0;">
                 <?php if (!empty($logo_url)): ?>
                     <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($sender_name); ?>" width="180" style="max-width: 180px; height: auto; margin-bottom: 8px;">
                 <?php else: ?>
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                         <tr>
-                            <td style="font-size: 24px; font-weight: 700; color: #f4f4f2; letter-spacing: 0.02em;">
+                            <td style="font-size: 24px; font-weight: 700; color: #f5f4f5; letter-spacing: 0.02em;">
                                 <span style="color: #ea7b3b;">P</span><?php echo esc_html(substr($sender_name, 1)); ?>
                             </td>
                         </tr>
@@ -54,12 +54,12 @@ if (!defined('ABSPATH')) exit;
 
         <!-- Orange accent line -->
         <tr>
-            <td style="background: linear-gradient(90deg, #ea7b3b, #f36523); height: 3px; font-size: 0; line-height: 0;" bgcolor="#ea7b3b">&nbsp;</td>
+            <td style="background: linear-gradient(135deg, #ea7b3b, #f6a263); height: 3px; font-size: 0; line-height: 0;" bgcolor="#ea7b3b">&nbsp;</td>
         </tr>
 
         <!-- Ticket badge -->
         <tr>
-            <td class="content-cell" style="padding: 32px 32px 0; background-color: #1d2327; border-left: 1px solid #3c434a; border-right: 1px solid #3c434a;">
+            <td class="content-cell" style="padding: 32px 32px 0; background-color: #101113; border-left: 1px solid #222528; border-right: 1px solid #222528;">
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                     <tr>
                         <td align="center">
@@ -73,12 +73,12 @@ if (!defined('ABSPATH')) exit;
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" style="padding-top: 16px; font-size: 26px; font-weight: 700; color: #f4f4f2; line-height: 1.3;">
+                        <td align="center" style="padding-top: 16px; font-size: 26px; font-weight: 700; color: #f5f4f5; line-height: 1.3;">
                             <?php echo esc_html($ticket_id); ?>
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" style="padding-top: 6px; font-size: 18px; color: #c3c4c7; line-height: 1.4;">
+                        <td align="center" style="padding-top: 6px; font-size: 18px; color: #a39e92; line-height: 1.4;">
                             <?php echo esc_html($subject); ?>
                         </td>
                     </tr>
@@ -88,12 +88,12 @@ if (!defined('ABSPATH')) exit;
 
         <!-- Kontaktdaten -->
         <tr>
-            <td class="content-cell" style="padding: 28px 32px; background-color: #1d2327; border-left: 1px solid #3c434a; border-right: 1px solid #3c434a;">
+            <td class="content-cell" style="padding: 28px 32px; background-color: #101113; border-left: 1px solid #222528; border-right: 1px solid #222528;">
 
                 <!-- Section: Kontakt -->
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom: 24px;">
                     <tr>
-                        <td style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #ea7b3b; padding-bottom: 12px; border-bottom: 1px solid #2c3338;">
+                        <td style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #ea7b3b; padding-bottom: 12px; border-bottom: 1px solid #16181a;">
                             KONTAKTDATEN
                         </td>
                     </tr>
@@ -102,7 +102,7 @@ if (!defined('ABSPATH')) exit;
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="data-table">
                     <tr>
                         <td width="120" style="padding: 8px 0; font-size: 13px; color: rgba(244,244,242,0.4); vertical-align: top;">Name</td>
-                        <td style="padding: 8px 0; font-size: 14px; color: #f4f4f2; font-weight: 500;"><?php echo esc_html($name); ?></td>
+                        <td style="padding: 8px 0; font-size: 14px; color: #f5f4f5; font-weight: 500;"><?php echo esc_html($name); ?></td>
                     </tr>
                     <tr>
                         <td width="120" style="padding: 8px 0; font-size: 13px; color: rgba(244,244,242,0.4); vertical-align: top;">E-Mail</td>
@@ -113,19 +113,19 @@ if (!defined('ABSPATH')) exit;
                     <?php if ($phone): ?>
                     <tr>
                         <td width="120" style="padding: 8px 0; font-size: 13px; color: rgba(244,244,242,0.4); vertical-align: top;">Telefon</td>
-                        <td style="padding: 8px 0; font-size: 14px; color: #f4f4f2;"><?php echo esc_html($phone); ?></td>
+                        <td style="padding: 8px 0; font-size: 14px; color: #f5f4f5;"><?php echo esc_html($phone); ?></td>
                     </tr>
                     <?php endif; ?>
                     <?php if ($company): ?>
                     <tr>
                         <td width="120" style="padding: 8px 0; font-size: 13px; color: rgba(244,244,242,0.4); vertical-align: top;">Firma</td>
-                        <td style="padding: 8px 0; font-size: 14px; color: #f4f4f2;"><?php echo esc_html($company); ?></td>
+                        <td style="padding: 8px 0; font-size: 14px; color: #f5f4f5;"><?php echo esc_html($company); ?></td>
                     </tr>
                     <?php endif; ?>
                     <tr>
                         <td width="120" style="padding: 8px 0; font-size: 13px; color: rgba(244,244,242,0.4); vertical-align: top;">Kategorie</td>
-                        <td style="padding: 8px 0; font-size: 14px; color: #f4f4f2;">
-                            <span style="background-color: #2c3338; border-radius: 3px; padding: 3px 10px; font-size: 12px;"><?php echo esc_html($category_label); ?></span>
+                        <td style="padding: 8px 0; font-size: 14px; color: #f5f4f5;">
+                            <span style="background-color: #16181a; border-radius: 3px; padding: 3px 10px; font-size: 12px;"><?php echo esc_html($category_label); ?></span>
                         </td>
                     </tr>
                 </table>
@@ -134,11 +134,11 @@ if (!defined('ABSPATH')) exit;
 
         <!-- Beschreibung -->
         <tr>
-            <td class="content-cell" style="padding: 0 32px 28px; background-color: #1d2327; border-left: 1px solid #3c434a; border-right: 1px solid #3c434a;">
+            <td class="content-cell" style="padding: 0 32px 28px; background-color: #101113; border-left: 1px solid #222528; border-right: 1px solid #222528;">
 
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom: 16px;">
                     <tr>
-                        <td style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #ea7b3b; padding-bottom: 12px; border-bottom: 1px solid #2c3338;">
+                        <td style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #ea7b3b; padding-bottom: 12px; border-bottom: 1px solid #16181a;">
                             BESCHREIBUNG
                         </td>
                     </tr>
@@ -146,8 +146,8 @@ if (!defined('ABSPATH')) exit;
 
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                     <tr>
-                        <td style="background-color: #2c3338; border-radius: 3px; padding: 20px; font-size: 14px; color: #f4f4f2; line-height: 1.65;">
-                            <?php echo nl2br(esc_html($message)); ?>
+                        <td style="background-color: #16181a; border-radius: 3px; padding: 20px; font-size: 14px; color: #f5f4f5; line-height: 1.65;">
+                            <!--ps-ticket-text--><?php echo nl2br(esc_html($message)); ?><!--/ps-ticket-text-->
                         </td>
                     </tr>
                 </table>
@@ -166,7 +166,7 @@ if (!defined('ABSPATH')) exit;
 
         <!-- Meta footer -->
         <tr>
-            <td style="padding: 16px 32px; background-color: #161a1d; border-left: 1px solid #3c434a; border-right: 1px solid #3c434a; border-bottom: 1px solid #3c434a; border-radius: 0 0 6px 6px;">
+            <td style="padding: 16px 32px; background-color: #0b0c0d; border-left: 1px solid #222528; border-right: 1px solid #222528; border-bottom: 1px solid #222528; border-radius: 0 0 6px 6px;">
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                     <tr>
                         <td style="font-size: 11px; color: rgba(244,244,242,0.3); line-height: 1.8;">

@@ -83,9 +83,9 @@
       if (el.type === 'checkbox') {
         if (!el.checked) {
           valid = false;
-          el.style.borderColor = '#ed5e5e';
+          el.classList.add('ps-error');
         } else {
-          el.style.borderColor = '';
+          el.classList.remove('ps-error');
         }
         return;
       }
@@ -111,11 +111,11 @@
     if (!validate()) return;
 
     submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span class="ps-ticket__spinner"></span> Wird gesendet...';
+    submitBtn.innerHTML = '<span class="ps-ticket__spinner" aria-hidden="true"></span> Wird gesendet …';
 
+    var ajaxUrl = form.dataset.ajax || '/wp-admin/admin-ajax.php';
     var fd = new FormData();
     fd.append('action', 'ps_ticket_submit');
-    fd.append('nonce', psTicketVars.nonce);
     fd.append('name', form.name.value.trim());
     fd.append('email', form.email.value.trim());
     fd.append('phone', form.phone.value.trim());
@@ -128,16 +128,19 @@
       fd.append('files[]', f);
     });
 
-    fetch(psTicketVars.ajaxUrl, {
-      method: 'POST',
-      body: fd,
-      credentials: 'same-origin',
-    })
+    // Erst ein frisches Sicherheits-Token holen (die Seite selbst kann aus einem Cache stammen), dann senden.
+    fetch(ajaxUrl + '?action=ps_ticket_nonce&_=' + Date.now(), { credentials: 'same-origin' })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (!res || !res.success) throw new Error('Sicherheitsprüfung fehlgeschlagen. Bitte laden Sie die Seite neu.');
+        fd.append('nonce', res.data.nonce);
+        return fetch(ajaxUrl, { method: 'POST', body: fd, credentials: 'same-origin' });
+      })
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data.success) {
           status.className = 'ps-ticket__status ps-ticket__status--success';
-          status.textContent = 'Ticket erfolgreich erstellt! Wir melden uns in Kürze bei Ihnen.';
+          status.textContent = 'Danke! Ihr Ticket ' + ((data.data && data.data.ticket_id) || '') + ' ist angekommen – Sie erhalten eine Bestätigung per E-Mail.';
           status.style.display = 'block';
           form.reset();
           selectedFiles = [];
@@ -154,7 +157,7 @@
       .finally(function () {
         submitBtn.disabled = false;
         submitBtn.innerHTML =
-          '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg> Ticket absenden';
+          'Ticket absenden <span class="ps-ticket__submit-arrow" aria-hidden="true">→</span>';
       });
   });
 

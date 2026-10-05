@@ -24,10 +24,10 @@ if (!defined('ABSPATH')) exit;
         }
     </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #0a0a0a; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+<body style="margin: 0; padding: 0; background-color: #020202; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
 
 <!-- Outer wrapper -->
-<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #0a0a0a;">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #020202;">
 <tr><td align="center" style="padding: 32px 16px;">
 
     <!-- Container -->
@@ -35,13 +35,13 @@ if (!defined('ABSPATH')) exit;
 
         <!-- Header -->
         <tr>
-            <td align="center" style="padding: 24px 32px; background-color: #1d2327; border: 1px solid #3c434a; border-bottom: none; border-radius: 6px 6px 0 0;">
+            <td align="center" style="padding: 24px 32px; background-color: #101113; border: 1px solid #222528; border-bottom: none; border-radius: 6px 6px 0 0;">
                 <?php if (!empty($logo_url)): ?>
                     <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($sender_name); ?>" width="180" style="max-width: 180px; height: auto; margin-bottom: 8px;">
                 <?php else: ?>
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                         <tr>
-                            <td style="font-size: 24px; font-weight: 700; color: #f4f4f2; letter-spacing: 0.02em;">
+                            <td style="font-size: 24px; font-weight: 700; color: #f5f4f5; letter-spacing: 0.02em;">
                                 <span style="color: #ea7b3b;">P</span><?php echo esc_html(substr($sender_name, 1)); ?>
                             </td>
                         </tr>
@@ -52,12 +52,12 @@ if (!defined('ABSPATH')) exit;
 
         <!-- Orange accent line -->
         <tr>
-            <td style="background: linear-gradient(90deg, #ea7b3b, #f36523); height: 3px; font-size: 0; line-height: 0;" bgcolor="#ea7b3b">&nbsp;</td>
+            <td style="background: linear-gradient(135deg, #ea7b3b, #f6a263); height: 3px; font-size: 0; line-height: 0;" bgcolor="#ea7b3b">&nbsp;</td>
         </tr>
 
         <!-- Ticket badge + greeting -->
         <tr>
-            <td class="content-cell" style="padding: 32px 32px 0; background-color: #1d2327; border-left: 1px solid #3c434a; border-right: 1px solid #3c434a;">
+            <td class="content-cell" style="padding: 32px 32px 0; background-color: #101113; border-left: 1px solid #222528; border-right: 1px solid #222528;">
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                     <tr>
                         <td align="center">
@@ -72,7 +72,7 @@ if (!defined('ABSPATH')) exit;
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" style="padding-top: 20px; font-size: 22px; font-weight: 700; color: #f4f4f2; line-height: 1.3;">
+                        <td align="center" style="padding-top: 20px; font-size: 22px; font-weight: 700; color: #f5f4f5; line-height: 1.3;">
                             Anfrage erhalten
                         </td>
                     </tr>
@@ -93,10 +93,10 @@ if (!defined('ABSPATH')) exit;
 
         <!-- Body text -->
         <tr>
-            <td class="content-cell" style="padding: 28px 32px; background-color: #1d2327; border-left: 1px solid #3c434a; border-right: 1px solid #3c434a;">
+            <td class="content-cell" style="padding: 28px 32px; background-color: #101113; border-left: 1px solid #222528; border-right: 1px solid #222528;">
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                     <tr>
-                        <td style="font-size: 15px; color: #c3c4c7; line-height: 1.7;">
+                        <td style="font-size: 15px; color: #a39e92; line-height: 1.7;">
                             <?php echo nl2br(esc_html($confirm_text)); ?>
                         </td>
                     </tr>
@@ -105,7 +105,7 @@ if (!defined('ABSPATH')) exit;
                 <!-- Ticket summary card -->
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top: 24px;">
                     <tr>
-                        <td style="background-color: #2c3338; border-radius: 3px; padding: 20px;">
+                        <td style="background-color: #16181a; border-radius: 3px; padding: 20px;">
                             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                                 <tr>
                                     <td style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #ea7b3b; padding-bottom: 12px;">
@@ -117,11 +117,11 @@ if (!defined('ABSPATH')) exit;
                                         <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                                             <tr>
                                                 <td width="90" style="font-size: 13px; color: rgba(244,244,242,0.4); vertical-align: top; padding: 4px 0;">Ticket-ID</td>
-                                                <td style="font-size: 14px; color: #f4f4f2; font-weight: 600; padding: 4px 0;"><?php echo esc_html($ticket_id); ?></td>
+                                                <td style="font-size: 14px; color: #f5f4f5; font-weight: 600; padding: 4px 0;"><?php echo esc_html($ticket_id); ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="90" style="font-size: 13px; color: rgba(244,244,242,0.4); vertical-align: top; padding: 4px 0;">Betreff</td>
-                                                <td style="font-size: 14px; color: #f4f4f2; padding: 4px 0;"><?php echo esc_html($subject); ?></td>
+                                                <td style="font-size: 14px; color: #f5f4f5; padding: 4px 0;"><?php echo esc_html($subject); ?></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -135,21 +135,21 @@ if (!defined('ABSPATH')) exit;
 
         <!-- Signature / Footer -->
         <tr>
-            <td style="padding: 20px 32px; background-color: #161a1d; border-left: 1px solid #3c434a; border-right: 1px solid #3c434a; border-bottom: 1px solid #3c434a; border-radius: 0 0 6px 6px;">
+            <td style="padding: 20px 32px; background-color: #0b0c0d; border-left: 1px solid #222528; border-right: 1px solid #222528; border-bottom: 1px solid #222528; border-radius: 0 0 6px 6px;">
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                     <tr>
-                        <td style="border-top: 1px solid #2c3338; padding-top: 16px;">
+                        <td style="border-top: 1px solid #16181a; padding-top: 16px;">
                             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                                 <?php if ($sender_name): ?>
                                 <tr>
-                                    <td style="font-size: 14px; font-weight: 600; color: #f4f4f2; padding-bottom: 2px;">
+                                    <td style="font-size: 14px; font-weight: 600; color: #f5f4f5; padding-bottom: 2px;">
                                         <?php echo esc_html($sender_name); ?>
                                     </td>
                                 </tr>
                                 <?php endif; ?>
                                 <?php if ($company && $company !== $sender_name): ?>
                                 <tr>
-                                    <td style="font-size: 13px; color: #c3c4c7; padding-bottom: 2px;">
+                                    <td style="font-size: 13px; color: #a39e92; padding-bottom: 2px;">
                                         <?php echo esc_html($company); ?>
                                     </td>
                                 </tr>

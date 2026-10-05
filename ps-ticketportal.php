@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: Pixelschmiede Ticketportal
- * Description: Support-Ticket-Formular für Elementor — sendet Tickets per wp_mail. Einstellungen unter Einstellungen → Ticketportal.
- * Version: 1.0.0
+ * Description: Support-Ticket-Formular im Design der Pixelschmiede — sendet Tickets per wp_mail und, mit Schlüssel, automatisch als Ticket in die Agentur-Zentrale. Shortcode [ps_ticketportal]. Einstellungen unter Einstellungen → Ticketportal.
+ * Version: 1.1.0
  * Author: Pixelschmiede
- * Author URI: https://pixelschmiede.de
+ * Author URI: https://www.pixelschmiede.io
  * Text Domain: ps-ticketportal
  * Requires at least: 5.8
  * Requires PHP: 7.4
@@ -12,7 +12,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('PS_TICKET_VERSION', '1.0.0');
+define('PS_TICKET_VERSION', '1.1.0');
 define('PS_TICKET_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('PS_TICKET_PLUGIN_URL', plugin_dir_url(__FILE__));
 

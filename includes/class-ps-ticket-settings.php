@@ -139,6 +139,20 @@ class PS_Ticket_Settings {
                 ],
             ],
             [
+                'title' => 'Agentur-Zentrale',
+                'id'    => 'zentrale',
+                'fields' => [
+                    [
+                        'id'          => 'ps_ticket_zentrale_secret',
+                        'label'       => 'Schlüssel für die Agentur-Zentrale',
+                        'type'        => 'password',
+                        'description' => 'Derselbe Wert wie TICKET_PORTAL_SECRET in der .env der Zentrale. Dann trägt jede Ticket-Mail eine unterschriebene Kennung, und die Zentrale legt daraus automatisch ein Ticket an. Leer = nur Mail.',
+                        'placeholder' => '',
+                        'sanitize'    => 'sanitize_text_field',
+                    ],
+                ],
+            ],
+            [
                 'title' => 'Limits & Sicherheit',
                 'id'    => 'limits',
                 'fields' => [
@@ -183,7 +197,7 @@ class PS_Ticket_Settings {
                 Pixelschmiede Ticketportal
             </h1>
             <p class="description" style="margin-bottom: 24px; font-size: 13px; color: #646970;">
-                Einstellungen für das Support-Ticket-Formular. Binde das Formular per Shortcode <code>[ps_ticketportal]</code> oder Elementor HTML-Widget ein.
+                Einstellungen für das Support-Ticket-Formular. Binde das Formular per Shortcode <code>[ps_ticketportal]</code> ein (in Elementor: Widget „Shortcode“). In einer schon gestalteten Elementor-Karte: <code>[ps_ticketportal stil="eingebettet"]</code>; ohne Überschrift: <code>kopf="nein"</code>.
                 <?php if (is_plugin_active('wp-mail-smtp/wp_mail_smtp.php') || is_plugin_active('wp-mail-smtp-pro/wp_mail_smtp.php')): ?>
                     <br><span style="color: #00a32a;">&#10003; WP Mail SMTP erkannt — E-Mails werden über deine SMTP-Konfiguration versendet.</span>
                 <?php else: ?>
@@ -335,7 +349,7 @@ class PS_Ticket_Settings {
 
             default:
                 printf(
-                    '<input type="%s" id="%s" name="%s" value="%s" class="regular-text" placeholder="%s">',
+                    '<input type="%s" id="%s" name="%s" value="%s" class="regular-text" placeholder="%s" autocomplete="off">',
                     esc_attr($field['type']),
                     esc_attr($field['id']),
                     esc_attr($field['id']),
