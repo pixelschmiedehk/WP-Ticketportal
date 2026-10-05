@@ -37,7 +37,7 @@ if (!defined('ABSPATH')) exit;
         <tr>
             <td align="center" style="padding: 24px 32px; background-color: #101113; border: 1px solid #222528; border-bottom: none; border-radius: 6px 6px 0 0;">
                 <?php if (!empty($logo_url)): ?>
-                    <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($sender_name); ?>" width="180" style="max-width: 180px; height: auto; margin-bottom: 8px;">
+                    <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($sender_name); ?>" width="220" style="max-width: 220px; height: auto; margin: 0 auto 4px;">
                 <?php else: ?>
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                         <tr>
@@ -96,7 +96,7 @@ if (!defined('ABSPATH')) exit;
             <td class="content-cell" style="padding: 28px 32px; background-color: #101113; border-left: 1px solid #222528; border-right: 1px solid #222528;">
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                     <tr>
-                        <td style="font-size: 15px; color: #a39e92; line-height: 1.7;">
+                        <td style="font-size: 15px; color: #f5f4f5; line-height: 1.7;">
                             <?php echo nl2br(esc_html($confirm_text)); ?>
                         </td>
                     </tr>
@@ -116,11 +116,11 @@ if (!defined('ABSPATH')) exit;
                                     <td style="padding: 6px 0;">
                                         <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                                             <tr>
-                                                <td width="90" style="font-size: 13px; color: rgba(244,244,242,0.4); vertical-align: top; padding: 4px 0;">Ticket-ID</td>
+                                                <td width="90" style="font-size: 13px; color: rgba(245,244,245,0.65); vertical-align: top; padding: 4px 0;">Ticket-ID</td>
                                                 <td style="font-size: 14px; color: #f5f4f5; font-weight: 600; padding: 4px 0;"><?php echo esc_html($ticket_id); ?></td>
                                             </tr>
                                             <tr>
-                                                <td width="90" style="font-size: 13px; color: rgba(244,244,242,0.4); vertical-align: top; padding: 4px 0;">Betreff</td>
+                                                <td width="90" style="font-size: 13px; color: rgba(245,244,245,0.65); vertical-align: top; padding: 4px 0;">Betreff</td>
                                                 <td style="font-size: 14px; color: #f5f4f5; padding: 4px 0;"><?php echo esc_html($subject); ?></td>
                                             </tr>
                                         </table>
@@ -149,20 +149,20 @@ if (!defined('ABSPATH')) exit;
                                 <?php endif; ?>
                                 <?php if ($company && $company !== $sender_name): ?>
                                 <tr>
-                                    <td style="font-size: 13px; color: #a39e92; padding-bottom: 2px;">
+                                    <td style="font-size: 13px; color: #f5f4f5; padding-bottom: 2px;">
                                         <?php echo esc_html($company); ?>
                                     </td>
                                 </tr>
                                 <?php endif; ?>
                                 <?php if ($address): ?>
                                 <tr>
-                                    <td style="font-size: 12px; color: rgba(244,244,242,0.35); padding-bottom: 2px;">
+                                    <td style="font-size: 12px; color: rgba(245,244,245,0.6); padding-bottom: 2px;">
                                         <?php echo esc_html($address); ?>
                                     </td>
                                 </tr>
                                 <?php endif; ?>
                                 <tr>
-                                    <td style="font-size: 12px; color: rgba(244,244,242,0.35); padding-top: 6px;">
+                                    <td style="font-size: 12px; color: rgba(245,244,245,0.6); padding-top: 6px;">
                                         <?php if ($phone): ?>
                                             <?php echo esc_html($phone); ?> &nbsp;&middot;&nbsp;
                                         <?php endif; ?>
@@ -183,7 +183,7 @@ if (!defined('ABSPATH')) exit;
             <td align="center" style="padding: 24px 0 0;">
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                     <tr>
-                        <td style="font-size: 11px; color: rgba(244,244,242,0.2); text-align: center;">
+                        <td style="font-size: 11px; color: rgba(245,244,245,0.45); text-align: center;">
                             Diese E-Mail wurde automatisch versendet. Bitte antworte nicht direkt auf diese Nachricht.
                         </td>
                     </tr>
