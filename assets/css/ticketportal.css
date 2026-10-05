@@ -131,9 +131,13 @@
 }
 
 /* Felder wie im Kontaktformular */
-.ps-ticket__input,
-.ps-ticket__select,
-.ps-ticket__textarea {
+.ps-ticket input.ps-ticket__input,
+.ps-ticket select.ps-ticket__select,
+.ps-ticket textarea.ps-ticket__textarea {
+  height: auto;
+  min-height: 51px;
+  font-weight: 400;
+  letter-spacing: normal;
   width: 100%;
   margin: 0;
   padding: 14px 17px;
@@ -149,22 +153,22 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.ps-ticket__input::placeholder,
-.ps-ticket__textarea::placeholder {
+.ps-ticket input.ps-ticket__input::placeholder,
+.ps-ticket textarea.ps-ticket__textarea::placeholder {
   color: var(--ps-placeholder);
   opacity: 1;
 }
 
-.ps-ticket__input:focus,
-.ps-ticket__select:focus,
-.ps-ticket__textarea:focus {
+.ps-ticket input.ps-ticket__input:focus,
+.ps-ticket select.ps-ticket__select:focus,
+.ps-ticket textarea.ps-ticket__textarea:focus {
   border-color: var(--ps-ink);
   box-shadow: 0 0 0 3px rgba(234, 123, 59, 0.25);
 }
 
-.ps-ticket__input.ps-error,
-.ps-ticket__select.ps-error,
-.ps-ticket__textarea.ps-error {
+.ps-ticket input.ps-ticket__input.ps-error,
+.ps-ticket select.ps-ticket__select.ps-error,
+.ps-ticket textarea.ps-ticket__textarea.ps-error {
   border-color: var(--ps-error);
   box-shadow: 0 0 0 3px rgba(179, 38, 30, 0.12);
 }
@@ -180,7 +184,7 @@
   display: none;
 }
 
-.ps-ticket__select {
+.ps-ticket select.ps-ticket__select {
   appearance: none;
   -webkit-appearance: none;
   padding-right: 42px;
@@ -190,11 +194,11 @@
   background-position: right 17px center;
 }
 
-.ps-ticket__select:invalid {
+.ps-ticket select.ps-ticket__select:invalid {
   color: var(--ps-placeholder);
 }
 
-.ps-ticket__textarea {
+.ps-ticket textarea.ps-ticket__textarea {
   min-height: 150px;
   resize: vertical;
   line-height: 1.55;
@@ -288,7 +292,7 @@
   color: var(--ps-text);
 }
 
-.ps-ticket__file-remove {
+.ps-ticket button.ps-ticket__file-remove {
   flex: none;
   width: 32px;
   height: 32px;
@@ -301,7 +305,7 @@
   border: none;
 }
 
-.ps-ticket__file-remove:hover {
+.ps-ticket button.ps-ticket__file-remove:hover {
   color: var(--ps-error);
 }
 
@@ -364,7 +368,12 @@
 }
 
 /* Knopf wie „Anfrage senden →“ */
-.ps-ticket__submit {
+.ps-ticket button.ps-ticket__submit {
+  min-height: 0;
+  line-height: 1.2;
+  text-transform: none;
+  text-decoration: none;
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -385,22 +394,25 @@
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.ps-ticket__submit:hover {
+.ps-ticket button.ps-ticket__submit:hover,
+.ps-ticket button.ps-ticket__submit:focus {
+  color: var(--ps-card);
+  background: var(--ps-ink);
   transform: translateY(-2px);
 }
 
-.ps-ticket__submit:focus-visible {
+.ps-ticket button.ps-ticket__submit:focus-visible {
   outline: 3px solid var(--ps-orange);
   outline-offset: 3px;
 }
 
-.ps-ticket__submit:disabled {
+.ps-ticket button.ps-ticket__submit:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
 
-.ps-ticket__submit-arrow {
+.ps-ticket button.ps-ticket__submit-arrow {
   font-size: 18px;
 }
 
