@@ -186,8 +186,13 @@ class PS_Ticket_Handler {
                 'subject'  => mb_substr($data['subject'], 0, 200),
                 'site'     => home_url(),
             ]));
+            $signature = hash_hmac('sha256', $payload, $secret);
             $headers[] = 'X-PS-Ticket: ' . $payload;
-            $headers[] = 'X-PS-Ticket-Signature: ' . hash_hmac('sha256', $payload, $secret);
+            $headers[] = 'X-PS-Ticket-Signature: ' . $signature;
+            // Zusätzlich unsichtbar im Text: Versanddienste (z. B. „Email Deliverability“ von Elementor)
+            // geben eigene Kopfzeilen nicht weiter – der Text kommt an.
+            $marker = '<!--ps-ticket:' . $payload . '.' . $signature . '-->';
+            $body = stripos($body, '</body>') !== false ? preg_replace('~</body>~i', $marker . '</body>', $body, 1) : $body . $marker;
         }
 
         return wp_mail(
