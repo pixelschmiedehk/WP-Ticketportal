@@ -50,7 +50,7 @@ class PS_Ticket_Handler {
         $message  = sanitize_textarea_field($_POST['message'] ?? '');
 
         if (!$name || !$email || !$subject || !$category || !$message) {
-            wp_send_json_error('Bitte füllen Sie alle Pflichtfelder aus.');
+            wp_send_json_error('Bitte füll alle Pflichtfelder aus.');
         }
 
         if (!is_email($email)) {
@@ -77,7 +77,7 @@ class PS_Ticket_Handler {
         if ($sent) {
             wp_send_json_success(['ticket_id' => $ticket_id]);
         } else {
-            wp_send_json_error('E-Mail konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.');
+            wp_send_json_error('E-Mail konnte nicht gesendet werden. Bitte versuch es später noch einmal.');
         }
     }
 
@@ -88,7 +88,7 @@ class PS_Ticket_Handler {
         $count = (int) get_transient($key);
 
         if ($count >= $limit) {
-            wp_send_json_error('Zu viele Anfragen. Bitte versuchen Sie es später erneut.');
+            wp_send_json_error('Zu viele Anfragen. Bitte versuch es später noch einmal.');
         }
 
         set_transient($key, $count + 1, 300);
@@ -242,6 +242,6 @@ class PS_Ticket_Handler {
             'Content-Type: text/html; charset=UTF-8',
         ];
 
-        wp_mail($data['email'], "Ihre Anfrage: {$ticket_id}", $body, $headers);
+        wp_mail($data['email'], "Deine Anfrage: {$ticket_id}", $body, $headers);
     }
 }

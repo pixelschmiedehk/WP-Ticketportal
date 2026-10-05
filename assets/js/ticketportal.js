@@ -132,7 +132,7 @@
     fetch(ajaxUrl + '?action=ps_ticket_nonce&_=' + Date.now(), { credentials: 'same-origin' })
       .then(function (r) { return r.json(); })
       .then(function (res) {
-        if (!res || !res.success) throw new Error('Sicherheitsprüfung fehlgeschlagen. Bitte laden Sie die Seite neu.');
+        if (!res || !res.success) throw new Error('Sicherheitsprüfung fehlgeschlagen. Bitte lade die Seite neu.');
         fd.append('nonce', res.data.nonce);
         return fetch(ajaxUrl, { method: 'POST', body: fd, credentials: 'same-origin' });
       })
@@ -140,7 +140,7 @@
       .then(function (data) {
         if (data.success) {
           status.className = 'ps-ticket__status ps-ticket__status--success';
-          status.textContent = 'Danke! Ihr Ticket ' + ((data.data && data.data.ticket_id) || '') + ' ist angekommen – Sie erhalten eine Bestätigung per E-Mail.';
+          status.textContent = 'Danke! Dein Ticket ' + ((data.data && data.data.ticket_id) || '') + ' ist angekommen – du bekommst eine Bestätigung per E-Mail.';
           status.style.display = 'block';
           form.reset();
           selectedFiles = [];

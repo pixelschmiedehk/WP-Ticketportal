@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) exit;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ihre Anfrage: <?php echo esc_html($ticket_id); ?></title>
+    <title>Deine Anfrage: <?php echo esc_html($ticket_id); ?></title>
     <!--[if mso]>
     <noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
     <![endif]-->
@@ -109,7 +109,7 @@ if (!defined('ABSPATH')) exit;
                             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                                 <tr>
                                     <td style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #ea7b3b; padding-bottom: 12px;">
-                                        IHRE ANFRAGE
+                                        DEINE ANFRAGE
                                     </td>
                                 </tr>
                                 <tr>
@@ -184,7 +184,7 @@ if (!defined('ABSPATH')) exit;
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                         <td style="font-size: 11px; color: rgba(244,244,242,0.2); text-align: center;">
-                            Diese E-Mail wurde automatisch versendet. Bitte antworten Sie nicht direkt auf diese Nachricht.
+                            Diese E-Mail wurde automatisch versendet. Bitte antworte nicht direkt auf diese Nachricht.
                         </td>
                     </tr>
                 </table>

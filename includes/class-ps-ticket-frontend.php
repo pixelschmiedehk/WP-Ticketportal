@@ -44,7 +44,7 @@ class PS_Ticket_Frontend {
             'kopf'      => 'ja',
             'zeile'     => 'Support',
             'titel'     => 'Ticket *erstellen.*',
-            'untertitel'=> 'Beschreiben Sie kurz, worum es geht – wir melden uns schnellstmöglich.',
+            'untertitel'=> 'Beschreib kurz, worum es geht – wir melden uns schnellstmöglich.',
         ], is_array($atts) ? $atts : [], 'ps_ticketportal');
         $embedded  = in_array(strtolower((string) $atts['stil']), ['eingebettet', 'embedded'], true);
         $show_head = !in_array(strtolower((string) $atts['kopf']), ['nein', 'no', '0', 'false'], true);
