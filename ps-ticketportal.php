@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: Pixelschmiede Ticketportal
- * Description: Support-Ticket-Formular für Elementor — sendet Tickets per wp_mail. Einstellungen unter Einstellungen → Ticketportal.
- * Version: 1.0.0
+ * Description: Support-Ticket-Formular im Design der Pixelschmiede — sendet Tickets per wp_mail und, mit Schlüssel, automatisch als Ticket in die Agentur-Zentrale. Shortcode [ps_ticketportal]. Einstellungen unter Einstellungen → Ticketportal.
+ * Version: 1.2.1
  * Author: Pixelschmiede
- * Author URI: https://pixelschmiede.de
+ * Author URI: https://www.pixelschmiede.io
  * Text Domain: ps-ticketportal
  * Requires at least: 5.8
  * Requires PHP: 7.4
@@ -12,7 +12,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('PS_TICKET_VERSION', '1.0.0');
+define('PS_TICKET_VERSION', '1.2.1');
 define('PS_TICKET_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('PS_TICKET_PLUGIN_URL', plugin_dir_url(__FILE__));
 
@@ -40,7 +40,7 @@ register_activation_hook(__FILE__, function () {
         'ps_ticket_website'        => home_url(),
         'ps_ticket_logo_url'       => '',
         'ps_ticket_confirm_active' => '1',
-        'ps_ticket_confirm_text'   => "Hallo {name},\n\nvielen Dank für Ihre Anfrage. Wir haben Ihr Ticket erhalten und melden uns schnellstmöglich.\n\nIhre Ticket-ID: {ticket_id}\nBetreff: {subject}\n\nMit freundlichen Grüßen\n{sender_name}",
+        'ps_ticket_confirm_text'   => "Hallo {name},\n\ndanke für deine Anfrage. Wir haben dein Ticket erhalten und melden uns schnellstmöglich.\n\nDeine Ticket-ID: {ticket_id}\nBetreff: {subject}\n\nViele Grüße\n{sender_name}",
         'ps_ticket_categories'     => "bug|Fehler / Bug\nfeature|Feature-Wunsch\nsupport|Allgemeiner Support\nbilling|Abrechnung / Vertrag\nother|Sonstiges",
         'ps_ticket_privacy_url'    => '/datenschutz/',
         'ps_ticket_max_files'      => 5,

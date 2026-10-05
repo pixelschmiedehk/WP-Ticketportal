@@ -24,6 +24,14 @@ class PS_Ticket_Handler {
     private function __construct() {
         add_action('wp_ajax_ps_ticket_submit', [$this, 'handle']);
         add_action('wp_ajax_nopriv_ps_ticket_submit', [$this, 'handle']);
+        // Frisches Sicherheits-Token beim Absenden: Seiten-Caches (WP Rocket) würden sonst ein abgelaufenes ausliefern.
+        add_action('wp_ajax_ps_ticket_nonce', [$this, 'nonce']);
+        add_action('wp_ajax_nopriv_ps_ticket_nonce', [$this, 'nonce']);
+    }
+
+    public function nonce(): void {
+        nocache_headers();
+        wp_send_json_success(['nonce' => wp_create_nonce('ps_ticket_nonce')]);
     }
 
     public function handle(): void {
@@ -42,7 +50,7 @@ class PS_Ticket_Handler {
         $message  = sanitize_textarea_field($_POST['message'] ?? '');
 
         if (!$name || !$email || !$subject || !$category || !$message) {
-            wp_send_json_error('Bitte füllen Sie alle Pflichtfelder aus.');
+            wp_send_json_error('Bitte füll alle Pflichtfelder aus.');
         }
 
         if (!is_email($email)) {
@@ -69,7 +77,7 @@ class PS_Ticket_Handler {
         if ($sent) {
             wp_send_json_success(['ticket_id' => $ticket_id]);
         } else {
-            wp_send_json_error('E-Mail konnte nicht gesendet werden. Bitte versuchen Sie es spaeter erneut.');
+            wp_send_json_error('E-Mail konnte nicht gesendet werden. Bitte versuch es später noch einmal.');
         }
     }
 
@@ -80,7 +88,7 @@ class PS_Ticket_Handler {
         $count = (int) get_transient($key);
 
         if ($count >= $limit) {
-            wp_send_json_error('Zu viele Anfragen. Bitte versuchen Sie es spaeter erneut.');
+            wp_send_json_error('Zu viele Anfragen. Bitte versuch es später noch einmal.');
         }
 
         set_transient($key, $count + 1, 300);
@@ -162,6 +170,26 @@ class PS_Ticket_Handler {
             'Content-Type: text/html; charset=UTF-8',
         ];
 
+        // Für die Agentur-Zentrale: die Angaben als unterschriebene Kennung. Die Zentrale legt nur bei
+        // gültiger Unterschrift automatisch ein Ticket an – eine gefälschte Mail bleibt eine Nachricht.
+        $secret = (string) PS_Ticket_Settings::get('ps_ticket_zentrale_secret', '');
+
+        if ($secret !== '') {
+            $payload = base64_encode((string) wp_json_encode([
+                'v'        => 1,
+                'id'       => $ticket_id,
+                'name'     => mb_substr($data['name'], 0, 120),
+                'email'    => $data['email'],
+                'phone'    => mb_substr($data['phone'], 0, 60),
+                'company'  => mb_substr($data['company'], 0, 160),
+                'category' => mb_substr($category_label, 0, 80),
+                'subject'  => mb_substr($data['subject'], 0, 200),
+                'site'     => home_url(),
+            ]));
+            $headers[] = 'X-PS-Ticket: ' . $payload;
+            $headers[] = 'X-PS-Ticket-Signature: ' . hash_hmac('sha256', $payload, $secret);
+        }
+
         return wp_mail(
             $recipient,
             "[Ticket {$ticket_id}] {$data['subject']}",
@@ -214,6 +242,6 @@ class PS_Ticket_Handler {
             'Content-Type: text/html; charset=UTF-8',
         ];
 
-        wp_mail($data['email'], "Ihre Anfrage: {$ticket_id}", $body, $headers);
+        wp_mail($data['email'], "Deine Anfrage: {$ticket_id}", $body, $headers);
     }
 }
